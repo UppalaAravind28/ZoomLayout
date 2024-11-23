@@ -1,3 +1,10 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
 /* General Body Styling */
 body {
     margin: 0;
@@ -18,12 +25,12 @@ body {
 /* Header Section */
 .zoom-header {
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-start; 
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px;
     background-color: #1a1a1a;
     border-bottom: 2px solid #333;
-    flex-shrink: 0; 
+    flex-shrink: 0;
 }
 
 .header-logo {
@@ -34,14 +41,18 @@ body {
 /* Participants Grid */
 .participants-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
     gap: 10px;
-    padding: 20px;
+    padding: 10px;
     background-color: #1a1a1a;
     flex: 1; 
     overflow-y: auto; 
 }
+.participant:hover{
+    border: solid green 3px;
+}
 
+/* Individual Participant Styling */
 .participant {
     background: #333;
     color: #fff;
@@ -51,7 +62,7 @@ body {
     align-items: center;
     text-align: center;
     position: relative;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16 / 9; 
     border: 2px solid #444;
     border-radius: 8px;
     overflow: hidden;
@@ -66,21 +77,21 @@ body {
 
 .participant-name {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
+    bottom: 8px;
+    left: 8px;
     background: rgba(0, 0, 0, 0.6);
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.8rem;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
 }
 
 .status-icon {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 1.2rem;
+    top: 8px;
+    right: 8px;
+    font-size: 1rem;
     background: rgba(0, 0, 0, 0.6);
-    padding: 5px;
+    padding: 4px;
     border-radius: 50%;
     color: #fff;
 }
@@ -101,7 +112,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #1a1a1a;
-    padding: 10px 20px;
+    padding: 10px;
     border-top: 2px solid #333;
     z-index: 10;
     flex-shrink: 0;
@@ -118,10 +129,33 @@ body {
     transform: scale(1.1);
 }
 
+/* Responsive Adjustments */
 
-@media (max-width: 768px) {
+/* For Mobile Screens (375px and smaller) */
+@media (max-width: 375px) {
     .participants-grid {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); 
+    }
+
+    .participant-name {
+        font-size: 0.6rem; 
+    }
+
+    .status-icon {
+        font-size: 0.8rem; 
+    }
+
+    .zoom-header,
+    .zoom-footer {
+        padding: 8px;
+    }
+}
+
+/* For Small Devices (375px to 735px) */
+@media (min-width: 376px) and (max-width: 735px) {
+    .participants-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
+        gap: 8px;
     }
 
     .participant-name {
@@ -129,25 +163,32 @@ body {
     }
 
     .status-icon {
+        font-size: 0.9rem;
+    }
+}
+
+/* For Medium Devices (735px to 1025px) */
+@media (min-width: 735px) and (max-width: 1025px) {
+    .participants-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+        gap: 12px;
+    }
+
+    .participant-name {
+        font-size: 0.8rem;
+    }
+
+    .status-icon {
         font-size: 1rem;
     }
-
-    .zoom-header,
-    .zoom-footer {
-        padding: 10px;
-    }
 }
 
-
-@media (max-width: 1024px) {
-    .participants-grid {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    }
-}
-
+/* For Large Screens (Desktops) */
 @media (min-width: 1025px) {
     .participants-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+        max-width: 1200px; 
+        margin: 0 auto;
     }
 
     .participant-name {
@@ -158,4 +199,5 @@ body {
         font-size: 1.2rem;
     }
 }
+
 
